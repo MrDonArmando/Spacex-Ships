@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
+import ShipDetails from "../../components/ShipDetails";
 import ShipsList from "../../components/ShipsList";
 
 const App = () => {
+  const [selectedShipID, setSelectedShipID] = useState("GOMSTREE");
+
   return (
     <div className="h-screen flex flex-col">
       {/* <div className="bg-green-400  w-full h-32 flex-initial">
@@ -9,9 +12,14 @@ const App = () => {
       </div> */}
       <div className="w-full flex-1 flex">
         <div className="overflow-auto flex-1 h-screen">
-          <ShipsList />
+          <ShipsList
+            selectedShipID={selectedShipID}
+            setSelectedShipID={setSelectedShipID}
+          />
         </div>
-        <div className="bg-pink-800 flex-1"></div>
+        <div className="flex-1">
+          <ShipDetails selectedShipID={selectedShipID} />
+        </div>
       </div>
     </div>
   );

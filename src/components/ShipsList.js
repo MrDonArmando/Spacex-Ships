@@ -11,7 +11,7 @@ const SHIPS_QUERY = gql`
   }
 `;
 
-const ShipsList = () => {
+const ShipsList = ({ selectedShipID, setSelectedShipID }) => {
   const { loading, error, data } = useQuery(SHIPS_QUERY);
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error :(</p>;
@@ -22,7 +22,12 @@ const ShipsList = () => {
   return (
     <ul>
       {ships.map((ship) => (
-        <ShipListItem key={ship.id} ship={ship} />
+        <ShipListItem
+          key={ship.id}
+          ship={ship}
+          setSelectedShipID={setSelectedShipID}
+          isSelected={ship.id === selectedShipID}
+        />
       ))}
     </ul>
   );

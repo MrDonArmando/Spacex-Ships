@@ -37,7 +37,23 @@ const ShipDetails = ({ selectedShipID }) => {
   if (loading) return <span>Loading...</span>;
   if (error) return <p>Error :(</p>;
 
-  return <div></div>;
+  const {
+    name,
+    image,
+    year_built,
+    weight_kg,
+    type,
+    active,
+    home_port,
+    roles,
+  } = data.ship;
+
+  return (
+    <>
+      <span className="block text-center text-2xl">{name}</span>
+      <img src={image} alt="Ship" />
+    </>
+  );
 };
 
 export default ShipDetails;

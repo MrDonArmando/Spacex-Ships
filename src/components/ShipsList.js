@@ -1,5 +1,6 @@
 import React from "react";
 import ShipListItem from "./ShipListItem";
+import Loader from "./Loader";
 import { gql, useQuery } from "@apollo/client";
 
 const SHIPS_QUERY = gql`
@@ -13,7 +14,8 @@ const SHIPS_QUERY = gql`
 
 const ShipsList = ({ selectedShipID, setSelectedShipID }) => {
   const { loading, error, data } = useQuery(SHIPS_QUERY);
-  if (loading) return <p>Loading...</p>;
+
+  if (loading) return <Loader />;
   if (error) return <p>Error :(</p>;
 
   const { ships } = data;

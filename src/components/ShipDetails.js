@@ -1,5 +1,6 @@
 import React from "react";
 import { useQuery, gql } from "@apollo/client";
+import Loader from "./Loader";
 
 const SH = gql`
   query S($shipID: ID!) {
@@ -34,7 +35,7 @@ const ShipDetails = ({ selectedShipID }) => {
 
   if (!selectedShipID) return null;
 
-  if (loading) return <span>Loading...</span>;
+  if (loading) return <Loader />;
   if (error) return <p>Error :(</p>;
 
   const {

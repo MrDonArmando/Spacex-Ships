@@ -1,3 +1,28 @@
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
+
+.pretty-scrollbar {
+  margin: 0;
+  font-family: "Roboto", sans-serif;
+  scrollbar-width: thin;
+  scrollbar-color: #90a4ae;
+}
+
+.pretty-scrollbar::-webkit-scrollbar {
+  width: 11px;
+}
+
+.pretty-scrollbar::-webkit-scrollbar-track {
+  background: #cfd8dc;
+}
+.pretty-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #90a4ae;
+  border-radius: 6px;
+  border: 3px solid #cfd8dc;
+}
+
+.check {
+  height: 100px;
+  background-color: blue;
+}

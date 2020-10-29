@@ -11,7 +11,7 @@ const App = () => {
         <span>sdafasdf</span>
       </div> */}
       <div className="w-full flex-1 flex">
-        <div className="overflow-auto flex-1 h-screen">
+        <div className="overflow-auto flex-1 h-screen pretty-scrollbar">
           <ShipsList
             selectedShipID={selectedShipID}
             setSelectedShipID={setSelectedShipID}

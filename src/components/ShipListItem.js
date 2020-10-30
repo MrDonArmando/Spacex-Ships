@@ -11,8 +11,8 @@ const ShipListItem = memo(({ ship: { id, name }, isSelected }) => {
 
   return (
     <li
-      className={`w-full h-auto cursor-pointer border-b border-solid border-blue-600 bg-blue-300 ${
-        isSelected && "bg-blue-800"
+      className={`w-full h-auto cursor-pointer border-solid border-b border-black ${
+        isSelected && "bg-blue-400"
       }`}
     >
       <Link to={`/ships/${id}`} className="block w-full h-full text-center p-4">

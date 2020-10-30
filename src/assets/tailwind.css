@@ -19,7 +19,7 @@
   }
 
   .pretty-scrollbar::-webkit-scrollbar-track {
-    background: #cfd8dc;
+    background: white;
   }
   .pretty-scrollbar::-webkit-scrollbar-thumb {
     background-color: #90a4ae;

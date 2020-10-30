@@ -2,61 +2,67 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
-.pretty-scrollbar {
-  margin: 0;
-  font-family: "Roboto", sans-serif;
-  scrollbar-width: thin;
-  scrollbar-color: #90a4ae;
-}
-
-.pretty-scrollbar::-webkit-scrollbar {
-  width: 11px;
-}
-
-.pretty-scrollbar::-webkit-scrollbar-track {
-  background: #cfd8dc;
-}
-.pretty-scrollbar::-webkit-scrollbar-thumb {
-  background-color: #90a4ae;
-  border-radius: 6px;
-  border: 3px solid #cfd8dc;
-}
-
-.lds-ring {
-  display: inline-block;
-  width: 80px;
-  height: 80px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-.lds-ring div {
-  box-sizing: border-box;
-  display: block;
-  position: absolute;
-  width: 40px;
-  height: 40px;
-  margin: 8px;
-  border: 5px solid #999;
-  border-radius: 50%;
-  animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-  border-color: #999 transparent transparent transparent;
-}
-.lds-ring div:nth-child(1) {
-  animation-delay: -0.45s;
-}
-.lds-ring div:nth-child(2) {
-  animation-delay: -0.3s;
-}
-.lds-ring div:nth-child(3) {
-  animation-delay: -0.15s;
-}
-@keyframes lds-ring {
-  0% {
-    transform: rotate(0deg);
+@layer utilities {
+  .text-shadow {
+    text-shadow: 0px 1px 3px rgba(150, 150, 150, 1);
   }
-  100% {
-    transform: rotate(360deg);
+
+  .pretty-scrollbar {
+    margin: 0;
+    font-family: "Roboto", sans-serif;
+    scrollbar-width: thin;
+    scrollbar-color: #90a4ae;
+  }
+
+  .pretty-scrollbar::-webkit-scrollbar {
+    width: 11px;
+  }
+
+  .pretty-scrollbar::-webkit-scrollbar-track {
+    background: #cfd8dc;
+  }
+  .pretty-scrollbar::-webkit-scrollbar-thumb {
+    background-color: #90a4ae;
+    border-radius: 6px;
+    border: 3px solid #cfd8dc;
+  }
+
+  .lds-ring {
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .lds-ring div {
+    box-sizing: border-box;
+    display: block;
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    margin: 8px;
+    border: 5px solid #999;
+    border-radius: 50%;
+    animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+    border-color: #999 transparent transparent transparent;
+  }
+  .lds-ring div:nth-child(1) {
+    animation-delay: -0.45s;
+  }
+  .lds-ring div:nth-child(2) {
+    animation-delay: -0.3s;
+  }
+  .lds-ring div:nth-child(3) {
+    animation-delay: -0.15s;
+  }
+  @keyframes lds-ring {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
   }
 }

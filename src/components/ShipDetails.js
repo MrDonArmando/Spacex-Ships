@@ -1,6 +1,14 @@
 import React from "react";
 import { useQuery, gql } from "@apollo/client";
 import Loader from "./Loader";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  useParams,
+  useRouteMatch,
+} from "react-router-dom";
 
 const SH = gql`
   query S($shipID: ID!) {
@@ -23,17 +31,16 @@ const SH = gql`
   }
 `;
 
-const ShipDetails = ({ selectedShipID }) => {
-  console.log("Selected Ship ID: ", typeof selectedShipID);
+const ShipDetails = () => {
+  const { shipID } = useParams();
+
   const { loading, error, data } = useQuery(SH, {
     variables: {
-      shipID: selectedShipID,
+      shipID: shipID,
     },
   });
 
-  console.log("SHIP DETAILS: ", data);
-
-  if (!selectedShipID) return null;
+  if (!shipID) return null;
 
   if (loading) return <Loader />;
   if (error) return <p>Error :(</p>;

@@ -65,4 +65,16 @@
       transform: rotate(360deg);
     }
   }
+
+  .border {
+    border: 1px solid lightgray;
+  }
+
+  .btn {
+    @apply bg-gray-500 text-white font-bold px-2 py-1 rounded h-auto w-auto;
+  }
+
+  .btn-blue {
+    @apply bg-blue-500 text-white font-bold px-2 py-1 rounded h-auto w-auto;
+  }
 }

@@ -13,7 +13,6 @@ import {
 const SH = gql`
   query S($shipID: ID!) {
     ship(id: $shipID) {
-      id
       name
       image
       active
@@ -23,10 +22,6 @@ const SH = gql`
       weight_kg
       type
       roles
-      missions {
-        flight
-        name
-      }
     }
   }
 `;
@@ -45,23 +40,47 @@ const ShipDetails = () => {
   if (loading) return <Loader />;
   if (error) return <p>Error :(</p>;
 
-  const {
-    name,
-    image,
-    year_built,
-    weight_kg,
-    type,
-    active,
-    home_port,
-    roles,
-  } = data.ship;
+  const { name, image, url } = data.ship;
 
   return (
     <>
-      <span className="block text-center text-2xl">{name}</span>
-      <img src={image} alt="Ship" />
+      <div className="flex h-auto mb-4">
+        <div className="flex-2 flex justify-center items-center">
+          <a href={url} target="_blank" className="block text-center text-2xl">
+            {url ? `More details about ${name}` : "URL is unavaiable"}
+          </a>
+        </div>
+        <div className="flex-3">
+          <img src={image} alt="Ship" />
+        </div>
+      </div>
+
+      {Object.keys(data.ship).map((key, index) => {
+        return (
+          <ShipDetail
+            title={key}
+            value={
+              data.ship[key] === null ? "Unknown" : data.ship[key].toString()
+            }
+            bgColor={index % 2 ? "gray" : "white"}
+            isEven={index % 2 === 0}
+          />
+        );
+      })}
     </>
   );
 };
 
 export default ShipDetails;
+
+const ShipDetail = ({ title, value, isEven }) => (
+  <div className={`p-4 flex justify-between ${isEven && "bg-gray-400"}`}>
+    <span>{replaceUnderscoreWithSpace(title.toUpperCase())}</span>
+    <span>{value}</span>
+  </div>
+);
+
+const capitalizeFirstLetter = (string) =>
+  string.charAt(0).toUpperCase() + string.slice(1);
+
+const replaceUnderscoreWithSpace = (string) => string.replace("_", " ");

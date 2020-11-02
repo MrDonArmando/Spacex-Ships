@@ -25,7 +25,7 @@ const Ships = () => {
         <div className="overflow-auto pretty-scrollbar relative flex-1 h-screen">
           <ShipsList />
         </div>
-        <div className="relative flex-3">
+        <div className="relative flex-3 p-4 overflow-auto pretty-scrollbar h-screen">
           <Route exact path="/ships">
             <h3 className="text-center mt-64 text-2xl tracking-wide">
               Please select a ship

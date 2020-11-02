@@ -9,10 +9,12 @@ import {
   useParams,
   useRouteMatch,
 } from "react-router-dom";
+import ShipMoreInformation from "./ShipMoreInformation";
 
 const SH = gql`
   query S($shipID: ID!) {
     ship(id: $shipID) {
+      id
       name
       image
       active
@@ -40,24 +42,16 @@ const ShipDetails = () => {
   if (loading) return <Loader />;
   if (error) return <p>Error :(</p>;
 
-  const { name, image, url } = data.ship;
+  const { id, image } = data.ship;
 
   return (
     <>
-      <div className="flex h-auto mb-4">
-        <div className="flex-2 flex justify-center items-center">
-          <a href={url} target="_blank" className="block text-center text-2xl">
-            {url ? `More details about ${name}` : "URL is unavaiable"}
-          </a>
-        </div>
-        <div className="flex-3">
-          <img src={image} alt="Ship" />
-        </div>
-      </div>
+      <ShipMoreInformation shipID={id} image={image} />
 
       {Object.keys(data.ship).map((key, index) => {
         return (
           <ShipDetail
+            key={key}
             title={key}
             value={
               data.ship[key] === null ? "Unknown" : data.ship[key].toString()
@@ -73,14 +67,13 @@ const ShipDetails = () => {
 
 export default ShipDetails;
 
-const ShipDetail = ({ title, value, isEven }) => (
-  <div className={`p-4 flex justify-between ${isEven && "bg-gray-400"}`}>
-    <span>{replaceUnderscoreWithSpace(title.toUpperCase())}</span>
-    <span>{value}</span>
-  </div>
-);
-
-const capitalizeFirstLetter = (string) =>
-  string.charAt(0).toUpperCase() + string.slice(1);
+const ShipDetail = ({ title, value, isEven }) => {
+  return (
+    <div className={`p-4 flex justify-between ${isEven && "bg-gray-400"}`}>
+      <span>{replaceUnderscoreWithSpace(title.toUpperCase())}</span>
+      <span>{value}</span>
+    </div>
+  );
+};
 
 const replaceUnderscoreWithSpace = (string) => string.replace("_", " ");

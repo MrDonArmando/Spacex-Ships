@@ -9,6 +9,8 @@ import {
   useRouteMatch,
   Redirect,
 } from "react-router-dom";
+import { Provider } from "react-redux";
+import store from "./redux/store";
 import Ships from "./screens/Ships";
 
 const client = new ApolloClient({
@@ -21,14 +23,16 @@ const client = new ApolloClient({
 const App = () => {
   return (
     <ApolloProvider client={client}>
-      <Router>
-        <Route exact path="/">
-          <Redirect to="/ships" />
-        </Route>
-        <Route exact path={["/ships", "/ships/:shipID"]}>
-          <Ships />
-        </Route>
-      </Router>
+      <Provider store={store}>
+        <Router>
+          <Route exact path="/">
+            <Redirect to="/ships" />
+          </Route>
+          <Route exact path={["/ships", "/ships/:shipID"]}>
+            <Ships />
+          </Route>
+        </Router>
+      </Provider>
     </ApolloProvider>
   );
 };

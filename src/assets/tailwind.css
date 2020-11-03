@@ -77,4 +77,20 @@
   .btn-blue {
     @apply bg-blue-500 text-white font-bold px-2 py-1 rounded h-auto w-auto;
   }
+
+  .height--60px {
+    height: calc(100vh - 60px);
+  }
+
+  .height-60px {
+    height: 60px;
+  }
+
+  .height--80px {
+    height: calc(100vh - 80px);
+  }
+
+  .height-80px {
+    height: 80px;
+  }
 }

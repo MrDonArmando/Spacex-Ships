@@ -19316,6 +19316,22 @@ video {
   width: auto;
 }
 
+.height--60px {
+  height: calc(100vh - 60px);
+}
+
+.height-60px {
+  height: 60px;
+}
+
+.height--80px {
+  height: calc(100vh - 80px);
+}
+
+.height-80px {
+  height: 80px;
+}
+
 @media (min-width: 640px) {
   .sm\:container {
     width: 100%;

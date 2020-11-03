@@ -12,19 +12,22 @@ import {
 
 const Ships = () => {
   return (
-    <div className="h-screen flex">
-      <div className="overflow-auto pretty-scrollbar relative flex-1 h-screen">
-        <ShipsList />
-      </div>
-      <div className="relative flex-3 p-4 overflow-auto pretty-scrollbar h-screen">
-        <Route exact path="/ships">
-          <h3 className="text-center mt-64 text-2xl tracking-wide">
-            Please select a ship
-          </h3>
-        </Route>
-        <Route path={`/ships/:shipID`}>
-          <ShipDetails />
-        </Route>
+    <div className="flex flex-col h-screen">
+      <div className="height-80px border-solid border-b border-gray"></div>
+      <div className="height--80px flex">
+        <div className="overflow-auto pretty-scrollbar relative flex-1 h-full">
+          <ShipsList />
+        </div>
+        <div className="relative flex-3 p-4 overflow-auto pretty-scrollbar h-full">
+          <Route exact path="/ships">
+            <h3 className="text-center mt-64 text-2xl tracking-wide">
+              Please select a ship
+            </h3>
+          </Route>
+          <Route path={`/ships/:shipID`}>
+            <ShipDetails />
+          </Route>
+        </div>
       </div>
     </div>
   );

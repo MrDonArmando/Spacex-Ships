@@ -24,7 +24,7 @@ const App = () => {
   return (
     <ApolloProvider client={client}>
       <Provider store={store}>
-        <Router>
+        <Router basename="/Spacex-Ships">
           <Route exact path="/">
             <Redirect to="/ships" />
           </Route>

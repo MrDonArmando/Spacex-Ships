@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/Spacex-Ships/static/css/main.993af706.chunk.css",
+    "main.js": "/Spacex-Ships/static/js/main.a21efcbb.chunk.js",
+    "main.js.map": "/Spacex-Ships/static/js/main.a21efcbb.chunk.js.map",
+    "runtime-main.js": "/Spacex-Ships/static/js/runtime-main.79af1e68.js",
+    "runtime-main.js.map": "/Spacex-Ships/static/js/runtime-main.79af1e68.js.map",
+    "static/js/2.2579b1be.chunk.js": "/Spacex-Ships/static/js/2.2579b1be.chunk.js",
+    "static/js/2.2579b1be.chunk.js.map": "/Spacex-Ships/static/js/2.2579b1be.chunk.js.map",
+    "static/js/3.381e5f76.chunk.js": "/Spacex-Ships/static/js/3.381e5f76.chunk.js",
+    "static/js/3.381e5f76.chunk.js.map": "/Spacex-Ships/static/js/3.381e5f76.chunk.js.map",
+    "index.html": "/Spacex-Ships/index.html",
+    "static/css/main.993af706.chunk.css.map": "/Spacex-Ships/static/css/main.993af706.chunk.css.map",
+    "static/js/2.2579b1be.chunk.js.LICENSE.txt": "/Spacex-Ships/static/js/2.2579b1be.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.79af1e68.js",
+    "static/js/2.2579b1be.chunk.js",
+    "static/css/main.993af706.chunk.css",
+    "static/js/main.a21efcbb.chunk.js"
+  ]
+}

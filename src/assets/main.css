@@ -19282,6 +19282,10 @@ video {
   border: 1px solid lightgray;
 }
 
+.border-2 {
+  border: 2px solid lightgray;
+}
+
 .btn {
   --bg-opacity: 1;
   background-color: #a0aec0;
@@ -19330,6 +19334,13 @@ video {
 
 .height-80px {
   height: 80px;
+}
+
+.search-input::before {
+  content: "DUPAF DSF SD FSDF 🔍";
+  position: "absolute";
+  top: 200px;
+  left: 200px;
 }
 
 @media (min-width: 640px) {

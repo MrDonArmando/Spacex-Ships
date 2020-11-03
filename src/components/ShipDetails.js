@@ -51,6 +51,7 @@ const ShipDetails = () => {
       {Object.keys(data.ship).map((key, index) => {
         return (
           <ShipDetail
+            key={key}
             title={key}
             value={
               data.ship[key] === null ? "Unknown" : data.ship[key].toString()
@@ -66,14 +67,13 @@ const ShipDetails = () => {
 
 export default ShipDetails;
 
-const ShipDetail = ({ title, value, isEven }) => (
-  <div className={`p-4 flex justify-between ${isEven && "bg-gray-400"}`}>
-    <span>{replaceUnderscoreWithSpace(title.toUpperCase())}</span>
-    <span>{value}</span>
-  </div>
-);
-
-const capitalizeFirstLetter = (string) =>
-  string.charAt(0).toUpperCase() + string.slice(1);
+const ShipDetail = ({ title, value, isEven }) => {
+  return (
+    <div className={`p-4 flex justify-between ${isEven && "bg-gray-400"}`}>
+      <span>{replaceUnderscoreWithSpace(title.toUpperCase())}</span>
+      <span>{value}</span>
+    </div>
+  );
+};
 
 const replaceUnderscoreWithSpace = (string) => string.replace("_", " ");

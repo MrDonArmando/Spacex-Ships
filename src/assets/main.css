@@ -19282,6 +19282,10 @@ video {
   border: 1px solid lightgray;
 }
 
+.border-2 {
+  border: 2px solid lightgray;
+}
+
 .btn {
   --bg-opacity: 1;
   background-color: #a0aec0;
@@ -19314,6 +19318,26 @@ video {
   border-radius: 0.25rem;
   height: auto;
   width: auto;
+}
+
+.height--60px {
+  height: calc(100vh - 60px);
+}
+
+.height-60px {
+  height: 60px;
+}
+
+.height--80px {
+  height: calc(100vh - 80px);
+}
+
+.height-80px {
+  height: 80px;
+}
+
+.search-input::before {
+  content: "🔍";
 }
 
 @media (min-width: 640px) {

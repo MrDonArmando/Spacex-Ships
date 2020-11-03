@@ -9,23 +9,19 @@ import {
   useParams,
   useRouteMatch,
 } from "react-router-dom";
+import SearchBar from "../../components/SearchBar";
 
 const Ships = () => {
-  // let { path, url } = useRouteMatch();
-  // console.log("path: ", path);
-  // console.log("url: ", url);
-
   return (
-    <div className="h-screen flex flex-col">
-      {/* <div className="bg-green-400  w-full h-32 flex-initial">
-        <span>sdafasdf</span>
-      </div> */}
-
-      <div className="w-full flex-1 flex">
-        <div className="overflow-auto pretty-scrollbar relative flex-1 h-screen">
+    <div className="flex flex-col h-screen">
+      <div className="height-80px border-solid border-b border-gray flex items-center">
+        <SearchBar />
+      </div>
+      <div className="height--80px flex">
+        <div className="overflow-auto pretty-scrollbar relative flex-1 h-full">
           <ShipsList />
         </div>
-        <div className="relative flex-3 p-4 overflow-auto pretty-scrollbar h-screen">
+        <div className="relative flex-3 p-4 overflow-auto pretty-scrollbar h-full">
           <Route exact path="/ships">
             <h3 className="text-center mt-64 text-2xl tracking-wide">
               Please select a ship

@@ -1,8 +1,12 @@
 import produce from "immer";
-import { ADD_ADDITIONAL_INFORMATION_ABOUT_SHIP } from "./actionTypes";
+import {
+  ADD_ADDITIONAL_INFORMATION_ABOUT_SHIP,
+  SET_SEARCH_PHRASE,
+} from "./actionTypes";
 
 const initialState = {
   additionalInformationAboutShips: {},
+  searchPhrase: "",
 };
 
 // additionalInformationAboutShips: {
@@ -17,6 +21,14 @@ export default (state = initialState, action) => {
         draft.additionalInformationAboutShips[
           shipID
         ] = additionalInformationAboutShip;
+      });
+      return nextState;
+    }
+
+    case SET_SEARCH_PHRASE: {
+      const { searchPhrase } = action.payload;
+      const nextState = produce(state, (draft) => {
+        draft.searchPhrase = searchPhrase;
       });
       return nextState;
     }

@@ -24,7 +24,7 @@ const App = () => {
   return (
     <ApolloProvider client={client}>
       <Provider store={store}>
-        <Router basename="/Spacex-Ships">
+        <Router basename={process.env.PUBLIC_URL}>
           <Route exact path="/">
             <Redirect to="/ships" />
           </Route>

@@ -1,6 +1,6 @@
-import React from "react";
+import React, { Fragment } from "react";
 import { useQuery, gql } from "@apollo/client";
-import Loader from "./Loader";
+import Loader from "../Loader";
 import {
   BrowserRouter as Router,
   Switch,
@@ -9,7 +9,7 @@ import {
   useParams,
   useRouteMatch,
 } from "react-router-dom";
-import ShipMoreInformation from "./ShipMoreInformation";
+import ShipMoreInformation from "../ShipMoreInformation";
 
 const SH = gql`
   query S($shipID: ID!) {
@@ -45,7 +45,7 @@ const ShipDetails = () => {
   const { id, image } = data.ship;
 
   return (
-    <>
+    <Fragment>
       <ShipMoreInformation shipID={id} image={image} />
 
       {Object.keys(data.ship).map((key, index) => {
@@ -61,7 +61,7 @@ const ShipDetails = () => {
           />
         );
       })}
-    </>
+    </Fragment>
   );
 };
 

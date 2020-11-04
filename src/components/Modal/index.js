@@ -23,7 +23,7 @@ const Modal = ({ children, isOpened }) => {
   if (!modalRoot) return null;
 
   return ReactDom.createPortal(
-    <div className="w-full h-screen absolute top-0 flex items-center justify-center">
+    <div className="w-full h-screen absolute top-0 flex items-center justify-center" data-testid="modal">
       {children}
     </div>,
     modalRoot

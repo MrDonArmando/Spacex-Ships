@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { setSearchPhrase } from "../redux/actionCreators";
+import { setSearchPhrase } from "../../redux/actionCreators";
 
 const SearchBar = () => {
   const dispatch = useDispatch();
@@ -16,6 +16,7 @@ const SearchBar = () => {
       placeholder="Search"
       value={searchPhrase}
       onChange={handleChange}
+      data-testid="searchBar"
     />
   );
 };

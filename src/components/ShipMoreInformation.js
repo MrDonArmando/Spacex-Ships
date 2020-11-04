@@ -2,24 +2,22 @@ import React, { useState, useEffect } from "react";
 import Modal from "./Modal";
 import { useDispatch, useSelector } from "react-redux";
 import { addAdditionalInformationAboutShip } from "../redux/actionCreators";
+import AddMoreInformationAboutShip from "./AddMoreInformationAboutShip";
+
 
 const ShipMoreInformation = ({ shipID, image }) => {
-  const dispatch = useDispatch();
   const additionalInformationAboutShip = useSelector(
     (state) => state.additionalInformationAboutShips[shipID]
   );
   const [isModalOpened, setIsModalOpened] = useState(false);
-  const [moreInformationAboutShip, setMoreInformationAboutShip] = useState("");
 
-  const handleChange = (e) => setMoreInformationAboutShip(e.target.value);
+  const closeModal = () => setIsModalOpened(false);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    dispatch(
-      addAdditionalInformationAboutShip(shipID, moreInformationAboutShip)
-    );
-    setIsModalOpened(false);
-  };
+  const props = {
+      shipID,
+      isModalOpened,
+      closeModal
+  }
 
   return (
     <>
@@ -44,33 +42,7 @@ const ShipMoreInformation = ({ shipID, image }) => {
           <img src={image} alt="Ship" />
         </div>
       </div>
-      <Modal isOpened={isModalOpened}>
-        <div className="bg-white rounded-xl w-2/6 mb-20 border p-4">
-          <form>
-            <label className="mb-2 block" htmlFor="moreInformationAboutShip">
-              Type addtional information about this ship
-            </label>
-            <textarea
-              className="w-full h-40 resize-none border p-2 tracking-wide"
-              id="moreInformationAboutShip"
-              name="moreInformationAboutShip"
-              rows="1"
-              cols="40"
-              placeholder="For example: This is my favourite ship..."
-              value={moreInformationAboutShip}
-              onChange={handleChange}
-            ></textarea>
-            <div className="flex justify-between mt-2">
-              <button className="btn" onClick={() => setIsModalOpened(false)}>
-                Cancel
-              </button>
-              <button className="btn-blue" onClick={handleSubmit}>
-                Save
-              </button>
-            </div>
-          </form>
-        </div>
-      </Modal>
+      <AddMoreInformationAboutShip {...props}/>
     </>
   );
 };

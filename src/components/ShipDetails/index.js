@@ -1,6 +1,6 @@
-import React from "react";
+import React, { Fragment } from "react";
 import { useQuery, gql } from "@apollo/client";
-import Loader from "./Loader";
+import Loader from "../Loader";
 import {
   BrowserRouter as Router,
   Switch,
@@ -9,7 +9,7 @@ import {
   useParams,
   useRouteMatch,
 } from "react-router-dom";
-import ShipMoreInformation from "./ShipMoreInformation";
+import MoreInformationAboutShip from "../MoreInformationAboutShip";
 
 const SH = gql`
   query S($shipID: ID!) {
@@ -45,14 +45,14 @@ const ShipDetails = () => {
   const { id, image } = data.ship;
 
   return (
-    <>
-      <ShipMoreInformation shipID={id} image={image} />
+    <Fragment>
+      <MoreInformationAboutShip shipID={id} image={image} />
 
       {Object.keys(data.ship).map((key, index) => {
         return (
           <ShipDetail
             key={key}
-            title={key}
+            detailName={key}
             value={
               data.ship[key] === null ? "Unknown" : data.ship[key].toString()
             }
@@ -61,16 +61,16 @@ const ShipDetails = () => {
           />
         );
       })}
-    </>
+    </Fragment>
   );
 };
 
 export default ShipDetails;
 
-const ShipDetail = ({ title, value, isEven }) => {
+export const ShipDetail = ({ detailName, value, isEven }) => {
   return (
     <div className={`p-4 flex justify-between ${isEven && "bg-gray-400"}`}>
-      <span>{replaceUnderscoreWithSpace(title.toUpperCase())}</span>
+      <span>{replaceUnderscoreWithSpace(detailName.toUpperCase())}</span>
       <span>{value}</span>
     </div>
   );

@@ -1,11 +1,11 @@
 import React from "react";
-import ShipListItem from "./ShipListItem";
-import Loader from "./Loader";
+import ShipListItem from "../ShipListItem";
+import Loader from "../Loader";
 import { gql, useQuery } from "@apollo/client";
 import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 
-const SHIPS_QUERY = gql`
+export const SHIPS_QUERY = gql`
   query {
     ships {
       id
@@ -24,6 +24,10 @@ const ShipsList = () => {
   if (error) return <p>Error :(</p>;
 
   const { ships } = data;
+  console.log(
+    "ships: ",
+    ships.map((ship) => ship.name)
+  );
 
   const displayShips = () => {
     return ships.map((ship) => {
@@ -33,6 +37,7 @@ const ShipsList = () => {
             key={ship.id}
             ship={ship}
             isSelected={shipID === ship.id}
+            data-testid="shipListItem"
           />
         );
     });

@@ -10,7 +10,9 @@ const ShipListItem = memo(({ ship: { id, name }, isSelected }) => {
       }`}
     >
       <Link to={`/ships/${id}`} className="block w-full h-full text-center p-4">
-        <span className="text-2xl text-shadow">{name}</span>
+        <span className="text-2xl text-shadow" data-testid="shipName">
+          {name}
+        </span>
       </Link>
     </li>
   );

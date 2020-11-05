@@ -25,6 +25,8 @@ const AddMoreInformationAboutShip = ({ shipID, isModalOpened, closeModal }) => {
             Type addtional information about this ship
           </label>
           <textarea
+            data-testid="here"
+            aria-label="moreInformationAboutShip"
             className="w-full h-40 resize-none border p-2 tracking-wide"
             id="moreInformationAboutShip"
             name="moreInformationAboutShip"

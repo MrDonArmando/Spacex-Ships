@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from "react";
-import Modal from "./Modal";
+import Modal from "../Modal";
 import { useDispatch, useSelector } from "react-redux";
-import { addAdditionalInformationAboutShip } from "../redux/actionCreators";
-import AddMoreInformationAboutShip from "./AddMoreInformationAboutShip";
+import { addAdditionalInformationAboutShip } from "../../redux/actionCreators";
+import AddMoreInformationAboutShip from "../AddMoreInformationAboutShip";
 
-
-const ShipMoreInformation = ({ shipID, image }) => {
+const MoreInformationAboutShip = ({ shipID, image }) => {
   const additionalInformationAboutShip = useSelector(
     (state) => state.additionalInformationAboutShips[shipID]
   );
@@ -14,16 +13,16 @@ const ShipMoreInformation = ({ shipID, image }) => {
   const closeModal = () => setIsModalOpened(false);
 
   const props = {
-      shipID,
-      isModalOpened,
-      closeModal
-  }
+    shipID,
+    isModalOpened,
+    closeModal,
+  };
 
   return (
     <>
       <div className="flex h-auto mb-4">
         <div className="flex-2 relative flex flex-col">
-          <div className="flex-1 tracking-wide">
+          <div className="flex-1 tracking-wide" data-testid="additionalInformationAboutShip">
             {additionalInformationAboutShip
               ? additionalInformationAboutShip
               : "No additional information given"}
@@ -42,9 +41,9 @@ const ShipMoreInformation = ({ shipID, image }) => {
           <img src={image} alt="Ship" />
         </div>
       </div>
-      <AddMoreInformationAboutShip {...props}/>
+      <AddMoreInformationAboutShip {...props} />
     </>
   );
 };
 
-export default ShipMoreInformation;
+export default MoreInformationAboutShip;

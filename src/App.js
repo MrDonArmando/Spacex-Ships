@@ -1,5 +1,5 @@
 import React from "react";
-import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
+import { ApolloProvider } from "@apollo/client";
 import {
   BrowserRouter as Router,
   Switch,
@@ -12,17 +12,11 @@ import {
 import { Provider } from "react-redux";
 import store from "./redux/store";
 import Ships from "./screens/Ships";
-
-const client = new ApolloClient({
-  uri: "https://api.spacex.land/graphql/",
-  cache: new InMemoryCache({
-    addTypename: false,
-  }),
-});
+import apolloClient from "./apollo-client"
 
 const App = () => {
   return (
-    <ApolloProvider client={client}>
+    <ApolloProvider client={apolloClient}>
       <Provider store={store}>
         <Router basename="/Spacex-Ships">
           <Route exact path="/">
